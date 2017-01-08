@@ -17,7 +17,7 @@ var server = http.createServer(function(req, res) {
 
 handler.on('push', function (event) {
     console.log(JSON.stringify(event))
-    var nameRepo = event.repository.name;
+    var nameRepo = event.payload.repository.name;
     var nameBranch = event.payload.ref.split('refs/heads/')[1];
     console.log('%s Repository: %s. Push received from %s',TAG, nameRepo, nameBranch);
 
