@@ -29,10 +29,12 @@ handler.on('push', function (event) {
     console.log('%s %s/%s. Running script %s', TAG, nameRepo, nameBranch, branch.script );
 
     exec(branch.script, function(error, stdout, stderr) {
-        console.log("%s End %s", TAG, branch.script);
-        if(error != null) {
+        if(error) {
             console.log('Error during the execution of redeploy: ' + stderr);
         }
+
+        console.log("%s End %s", TAG, branch.script);
+
     });
 });
 
